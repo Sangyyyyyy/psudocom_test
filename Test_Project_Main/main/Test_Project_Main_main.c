@@ -141,7 +141,7 @@ app_main (void)
   while (1)
     {
       vTaskDelay (pdMS_TO_TICKS (1000UL));
-      printf ("%s", connection_flag > 0 ? "connected\r\n" : "disconnected\r\n");
+      //printf ("%s", connection_flag > 0 ? "connected\r\n" : "disconnected\r\n");
       if (connection_flag != 0)
         {
           if (status == false)
