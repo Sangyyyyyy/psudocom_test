@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "Test_Project_Main",
-    "project_version":    "1",
+    "project_version":    "a118cc5b-dirty",
     "project_path":       "D:/Project/001_Psudo_Company/src/fw/Test_Project/Test_Project_Main",
     "idf_path":           "D:/esp/v5.2.1/esp-idf",
     "build_dir":          "D:/Project/001_Psudo_Company/src/fw/Test_Project/Test_Project_Main/build",
