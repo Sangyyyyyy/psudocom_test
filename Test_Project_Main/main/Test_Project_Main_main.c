@@ -141,7 +141,7 @@ app_main (void)
   while (1)
     {
       vTaskDelay (pdMS_TO_TICKS (1000UL));
-      printf ("%s", connection_flag > 0 ? "connected\r\n" : "disconnected\r\n");
+      //printf ("%s", connection_flag > 0 ? "connected\r\n" : "disconnected\r\n");
       if (connection_flag != 0)
         {
           if (status == false)
@@ -270,7 +270,7 @@ mainPage_get_handler (httpd_req_t * req)
   httpd_resp_sendstr_chunk (req,
                             "document.getElementById(\"loginForm\").addEventListener(\"submit\", (e) => {e.preventDefault(); const formData = new FormData(e.target); const data = Array.from(formData.entries()).reduce((memo, pair) => ({...memo, [pair[0]]: pair[1],  }), {}); var xhr = new XMLHttpRequest(); xhr.open(\"POST\", \"http://192.168.4.1/connection\", true); xhr.setRequestHeader('Content-Type', 'application/json'); xhr.send(JSON.stringify(data)); document.getElementById(\"output\").innerHTML = JSON.stringify(data);});");
   httpd_resp_sendstr_chunk (req, "</script>");
-
+ 
 
   // form 2 script(period change)
   httpd_resp_sendstr_chunk (req, "<form class=\"form2\" id=\"changeForm\" action=\"/change\">");
