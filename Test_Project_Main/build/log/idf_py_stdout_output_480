@@ -1,0 +1,47 @@
+-- Found Git: D:/esp/espressif/tools/idf-git/2.39.2/cmd/git.exe (found version "2.39.2.windows.1") 
+-- ccache will be used for faster recompilation
+-- The C compiler identification is GNU 13.2.0
+-- The CXX compiler identification is GNU 13.2.0
+-- The ASM compiler identification is GNU
+-- Found assembler: D:/esp/espressif/tools/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc.exe
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: D:/esp/espressif/tools/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: D:/esp/espressif/tools/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin/xtensa-esp32-elf-g++.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- git rev-parse returned 'fatal: not a git repository (or any of the parent directories): .git'
+-- Could not use 'git describe' to determine PROJECT_VER.
+-- Building ESP-IDF components for target esp32
+-- Project sdkconfig file D:/Project/001_Psudo_Company/src/fw/Test_Project/Test_Project_Main/sdkconfig
+-- Compiler supported targets: xtensa-esp-elf
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for stddef.h
+-- Looking for stddef.h - found
+-- Check size of time_t
+-- Check size of time_t - done
+-- Found Python3: d:/esp/espressif/python_env/idf5.2_py3.11_env/Scripts/python.exe (found version "3.11.2") found components: Interpreter 
+-- Performing Test C_COMPILER_SUPPORTS_WFORMAT_SIGNEDNESS
+-- Performing Test C_COMPILER_SUPPORTS_WFORMAT_SIGNEDNESS - Success
+-- App "Test_Project_Main" version: 1
+-- Adding linker script D:/Project/001_Psudo_Company/src/fw/Test_Project/Test_Project_Main/build/esp-idf/esp_system/ld/memory.ld
+-- Adding linker script D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_system/ld/esp32/sections.ld.in
+-- Adding linker script D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_rom/esp32/ld/esp32.rom.ld
+-- Adding linker script D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_rom/esp32/ld/esp32.rom.api.ld
+-- Adding linker script D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_rom/esp32/ld/esp32.rom.libgcc.ld
+-- Adding linker script D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_rom/esp32/ld/esp32.rom.newlib-data.ld
+-- Adding linker script D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_rom/esp32/ld/esp32.rom.syscalls.ld
+-- Adding linker script D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_rom/esp32/ld/esp32.rom.newlib-funcs.ld
+-- Adding linker script D:/Project/001_Psudo_Company/src/fw/Test_Project/components/soc/esp32/ld/esp32.peripherals.ld
+-- Components: app_trace app_update bootloader bootloader_support bt cmock console cxx driver efuse esp-tls esp_adc esp_app_format esp_bootloader_format esp_coex esp_common esp_eth esp_event esp_gdbstub esp_hid esp_http_client esp_http_server esp_https_ota esp_https_server esp_hw_support esp_lcd esp_local_ctrl esp_mm esp_netif esp_netif_stack esp_partition esp_phy esp_pm esp_psram esp_ringbuf esp_rom esp_system esp_timer esp_wifi espcoredump esptool_py fatfs freertos hal heap http_parser idf_test ieee802154 json log lwip main mbedtls mqtt newlib nvs_flash nvs_sec_provider openthread partition_table perfmon protobuf-c protocomm pthread sdmmc soc spi_flash spiffs tcp_transport ulp unity usb vfs wear_levelling wifi_provisioning wpa_supplicant xtensa
+-- Component paths: D:/Project/001_Psudo_Company/src/fw/Test_Project/components/app_trace D:/Project/001_Psudo_Company/src/fw/Test_Project/components/app_update D:/Project/001_Psudo_Company/src/fw/Test_Project/components/bootloader D:/Project/001_Psudo_Company/src/fw/Test_Project/components/bootloader_support D:/Project/001_Psudo_Company/src/fw/Test_Project/components/bt D:/Project/001_Psudo_Company/src/fw/Test_Project/components/cmock D:/Project/001_Psudo_Company/src/fw/Test_Project/components/console D:/Project/001_Psudo_Company/src/fw/Test_Project/components/cxx D:/Project/001_Psudo_Company/src/fw/Test_Project/components/driver D:/Project/001_Psudo_Company/src/fw/Test_Project/components/efuse D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp-tls D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_adc D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_app_format D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_bootloader_format D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_coex D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_common D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_eth D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_event D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_gdbstub D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_hid D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_http_client D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_http_server D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_https_ota D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_https_server D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_hw_support D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_lcd D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_local_ctrl D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_mm D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_netif D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_netif_stack D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_partition D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_phy D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_pm D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_psram D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_ringbuf D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_rom D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_system D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_timer D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_wifi D:/Project/001_Psudo_Company/src/fw/Test_Project/components/espcoredump D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esptool_py D:/Project/001_Psudo_Company/src/fw/Test_Project/components/fatfs D:/Project/001_Psudo_Company/src/fw/Test_Project/components/freertos D:/Project/001_Psudo_Company/src/fw/Test_Project/components/hal D:/Project/001_Psudo_Company/src/fw/Test_Project/components/heap D:/Project/001_Psudo_Company/src/fw/Test_Project/components/http_parser D:/Project/001_Psudo_Company/src/fw/Test_Project/components/idf_test D:/Project/001_Psudo_Company/src/fw/Test_Project/components/ieee802154 D:/Project/001_Psudo_Company/src/fw/Test_Project/components/json D:/Project/001_Psudo_Company/src/fw/Test_Project/components/log D:/Project/001_Psudo_Company/src/fw/Test_Project/components/lwip D:/Project/001_Psudo_Company/src/fw/Test_Project/Test_Project_Main/main D:/Project/001_Psudo_Company/src/fw/Test_Project/components/mbedtls D:/Project/001_Psudo_Company/src/fw/Test_Project/components/mqtt D:/Project/001_Psudo_Company/src/fw/Test_Project/components/newlib D:/Project/001_Psudo_Company/src/fw/Test_Project/components/nvs_flash D:/Project/001_Psudo_Company/src/fw/Test_Project/components/nvs_sec_provider D:/Project/001_Psudo_Company/src/fw/Test_Project/components/openthread D:/Project/001_Psudo_Company/src/fw/Test_Project/components/partition_table D:/Project/001_Psudo_Company/src/fw/Test_Project/components/perfmon D:/Project/001_Psudo_Company/src/fw/Test_Project/components/protobuf-c D:/Project/001_Psudo_Company/src/fw/Test_Project/components/protocomm D:/Project/001_Psudo_Company/src/fw/Test_Project/components/pthread D:/Project/001_Psudo_Company/src/fw/Test_Project/components/sdmmc D:/Project/001_Psudo_Company/src/fw/Test_Project/components/soc D:/Project/001_Psudo_Company/src/fw/Test_Project/components/spi_flash D:/Project/001_Psudo_Company/src/fw/Test_Project/components/spiffs D:/Project/001_Psudo_Company/src/fw/Test_Project/components/tcp_transport D:/Project/001_Psudo_Company/src/fw/Test_Project/components/ulp D:/Project/001_Psudo_Company/src/fw/Test_Project/components/unity D:/Project/001_Psudo_Company/src/fw/Test_Project/components/usb D:/Project/001_Psudo_Company/src/fw/Test_Project/components/vfs D:/Project/001_Psudo_Company/src/fw/Test_Project/components/wear_levelling D:/Project/001_Psudo_Company/src/fw/Test_Project/components/wifi_provisioning D:/Project/001_Psudo_Company/src/fw/Test_Project/components/wpa_supplicant D:/Project/001_Psudo_Company/src/fw/Test_Project/components/xtensa
+-- Configuring done
+-- Generating done
+-- Build files have been written to: D:/Project/001_Psudo_Company/src/fw/Test_Project/Test_Project_Main/build
