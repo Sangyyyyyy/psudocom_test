@@ -130,6 +130,7 @@ app_main (void)
   Start_AP_or_STA_Mode ();
 
   //web_server_start();
+  //왜 안바뀜
 
   // wait for wifi connection
   xEventGroupWaitBits (wifi_event_group, WIFI_CONNECTED_BIT, pdFALSE, pdFALSE, portMAX_DELAY);
