@@ -127,7 +127,7 @@ app_main (void)
   xTimerStart (LED_Timer_handler, 0);
 
   // AP or STA mode 선택하여 start
-  Start_AP_or_STA_Mode ();
+  //Start_AP_or_STA_Mode ();
 
   //web_server_start();
   //왜 안바뀜
