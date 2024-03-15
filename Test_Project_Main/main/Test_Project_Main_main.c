@@ -267,13 +267,13 @@ mainPage_get_handler (httpd_req_t * req)
   // submit 버튼 구현
   httpd_resp_sendstr_chunk (req, "<button>Submit</button>");
   httpd_resp_sendstr_chunk (req, "</form>");
-  // javascript 스크립트
+/*   // javascript 스크립트
   httpd_resp_sendstr_chunk (req, "<script>");
   // ssid, password값 관련
   httpd_resp_sendstr_chunk (req,
                             "document.getElementById(\"loginForm\").addEventListener(\"submit\", (e) => {e.preventDefault(); const formData = new FormData(e.target); const data = Array.from(formData.entries()).reduce((memo, pair) => ({...memo, [pair[0]]: pair[1],  }), {}); var xhr = new XMLHttpRequest(); xhr.open(\"POST\", \"http://192.168.4.1/connection\", true); xhr.setRequestHeader('Content-Type', 'application/json'); xhr.send(JSON.stringify(data)); document.getElementById(\"output\").innerHTML = JSON.stringify(data);});");
   httpd_resp_sendstr_chunk (req, "</script>");
-
+ */
 
   // form 2 script(period change)
   httpd_resp_sendstr_chunk (req, "<form class=\"form2\" id=\"changeForm\" action=\"/change\">");
