@@ -204,6 +204,7 @@ event_handler (void *arg, esp_event_base_t event_base, int32_t event_id, void *e
     {
       switch (event_id)
         {
+          //주석추가
         case IP_EVENT_STA_GOT_IP:
           ip_event_got_ip_t * event = (ip_event_got_ip_t *) event_data;
           connection_flag = 1;
