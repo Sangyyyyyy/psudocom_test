@@ -80,6 +80,90 @@ void vLED_Period_Timercallback (void *pvParam);
 void vTask_running_value (void *pvParam);
 void vPeriod_change_task (void *pvParam);
 
+
+void
+app_main (void)
+{
+  //led 설정
+  gpio_reset_pin (LED_PIN);
+  gpio_set_direction (LED_PIN, GPIO_MODE_OUTPUT);
+
+  //nvs 설정
+  esp_err_t ret = nvs_flash_init ();
+  if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND)
+    {
+      ESP_ERROR_CHECK (nvs_flash_erase ());
+      ret = nvs_flash_init ();
+    }
+  ESP_ERROR_CHECK (ret);
+
+  // event loop 설정
+  ESP_ERROR_CHECK (esp_event_loop_create_default ());
+
+  // 네트워크 인터페이스 설정
+  ESP_ERROR_CHECK (esp_netif_init ());
+
+  // sta, ap 생성
+  esp_netif_create_default_wifi_sta ();
+  esp_netif_create_default_wifi_ap ();
+
+  // 이벤트 그룹 설정
+  wifi_event_group = xEventGroupCreate ();
+
+  wifi_init_config_t wifi_init_cfg = WIFI_INIT_CONFIG_DEFAULT ();
+  ESP_ERROR_CHECK (esp_wifi_init (&wifi_init_cfg));
+
+  ESP_ERROR_CHECK (esp_event_handler_register (WIFI_EVENT, ESP_EVENT_ANY_ID, &event_handler, NULL));
+  ESP_ERROR_CHECK (esp_event_handler_register (IP_EVENT, IP_EVENT_STA_GOT_IP, &event_handler, NULL));
+
+  /**
+   * task, timer 생성
+   * @task1 : running_value 값 변경시켜주는 task. period값도 뿌려줌
+   * @task2 : 이벤트 비트가 설정되면 timer 주기 변경해줌. 
+  */
+  xTaskCreate (vTask_running_value, "task 1", 1024 * 2, NULL, 1, &xtask1);
+  xTaskCreate (vPeriod_change_task, "task2 ", 1024 * 2, NULL, 5, &xtask2);
+  LED_Timer_handler = xTimerCreate ("led period", pdMS_TO_TICKS (getPeriod), pdTRUE, 0, vLED_Period_Timercallback);
+  xTimerStart (LED_Timer_handler, 0);
+
+  // AP or STA mode 선택하여 start
+  Start_AP_or_STA_Mode ();
+  // wait for wifi connection
+  xEventGroupWaitBits (wifi_event_group, WIFI_CONNECTED_BIT, pdFALSE, pdFALSE, portMAX_DELAY);
+
+  vTaskDelete (xtask1);
+  vTaskDelete (xtask2);
+
+  /**
+   * wifi 연결되면 LED는 연결/비연결 상태를 시각적으로 보여줌
+  */
+  uint8_t status = false;
+  while (1)
+    {
+      vTaskDelay (pdMS_TO_TICKS (1000UL));
+      printf ("%s", connection_flag > 0 ? "connected\r\n" : "disconnected\r\n");
+      if (connection_flag != 0)
+        {
+          if (status == false)
+            {
+              getPeriod = 2000;
+              xTimerChangePeriod (LED_Timer_handler, pdMS_TO_TICKS (getPeriod), portMAX_DELAY);
+              status = true;
+            }
+        }
+      else
+        {
+          if (status == true)
+            {
+              getPeriod = 300;
+              xTimerChangePeriod (LED_Timer_handler, pdMS_TO_TICKS (getPeriod), portMAX_DELAY);
+              status = false;
+            }
+        }
+    }
+}
+
+
 /**
  * @WIFI_EVENT_STA_START          : STA모드 시작
  * @WIFI_EVENT_STA_DISCONNECTED   : AP에 연결 실패
@@ -461,89 +545,6 @@ vPeriod_change_task (void *pvParam)
         }
     }
 }
-
-void
-app_main (void)
-{
-  //led 설정
-  gpio_reset_pin (LED_PIN);
-  gpio_set_direction (LED_PIN, GPIO_MODE_OUTPUT);
-
-  //nvs 설정
-  esp_err_t ret = nvs_flash_init ();
-  if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND)
-    {
-      ESP_ERROR_CHECK (nvs_flash_erase ());
-      ret = nvs_flash_init ();
-    }
-  ESP_ERROR_CHECK (ret);
-
-  // event loop 설정
-  ESP_ERROR_CHECK (esp_event_loop_create_default ());
-
-  // 네트워크 인터페이스 설정
-  ESP_ERROR_CHECK (esp_netif_init ());
-
-  // sta, ap 생성
-  esp_netif_create_default_wifi_sta ();
-  esp_netif_create_default_wifi_ap ();
-
-  // 이벤트 그룹 설정
-  wifi_event_group = xEventGroupCreate ();
-
-  wifi_init_config_t wifi_init_cfg = WIFI_INIT_CONFIG_DEFAULT ();
-  ESP_ERROR_CHECK (esp_wifi_init (&wifi_init_cfg));
-
-  ESP_ERROR_CHECK (esp_event_handler_register (WIFI_EVENT, ESP_EVENT_ANY_ID, &event_handler, NULL));
-  ESP_ERROR_CHECK (esp_event_handler_register (IP_EVENT, IP_EVENT_STA_GOT_IP, &event_handler, NULL));
-
-  /**
-   * task, timer 생성
-   * @task1 : running_value 값 변경시켜주는 task. period값도 뿌려줌
-   * @task2 : 이벤트 비트가 설정되면 timer 주기 변경해줌. 
-  */
-  xTaskCreate (vTask_running_value, "task 1", 1024 * 2, NULL, 1, &xtask1);
-  xTaskCreate (vPeriod_change_task, "task2 ", 1024 * 2, NULL, 5, &xtask2);
-  LED_Timer_handler = xTimerCreate ("led period", pdMS_TO_TICKS (getPeriod), pdTRUE, 0, vLED_Period_Timercallback);
-  xTimerStart (LED_Timer_handler, 0);
-
-  // AP or STA mode 선택하여 start
-  Start_AP_or_STA_Mode ();
-  // wait for wifi connection
-  xEventGroupWaitBits (wifi_event_group, WIFI_CONNECTED_BIT, pdFALSE, pdFALSE, portMAX_DELAY);
-
-  vTaskDelete (xtask1);
-  vTaskDelete (xtask2);
-
-  /**
-   * wifi 연결되면 LED는 연결/비연결 상태를 시각적으로 보여줌
-  */
-  uint8_t status = false;
-  while (1)
-    {
-      vTaskDelay (pdMS_TO_TICKS (1000UL));
-      printf ("%s", connection_flag > 0 ? "connected\r\n" : "disconnected\r\n");
-      if (connection_flag != 0)
-        {
-          if (status == false)
-            {
-              getPeriod = 2000;
-              xTimerChangePeriod (LED_Timer_handler, pdMS_TO_TICKS (getPeriod), portMAX_DELAY);
-              status = true;
-            }
-        }
-      else
-        {
-          if (status == true)
-            {
-              getPeriod = 300;
-              xTimerChangePeriod (LED_Timer_handler, pdMS_TO_TICKS (getPeriod), portMAX_DELAY);
-              status = false;
-            }
-        }
-    }
-}
-
 
 
 
