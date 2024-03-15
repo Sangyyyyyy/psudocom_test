@@ -129,8 +129,8 @@ app_main (void)
   // AP or STA mode 선택하여 start
   Start_AP_or_STA_Mode ();
 
-  web_server_start();
-  
+  //web_server_start();
+
   // wait for wifi connection
   xEventGroupWaitBits (wifi_event_group, WIFI_CONNECTED_BIT, pdFALSE, pdFALSE, portMAX_DELAY);
 
