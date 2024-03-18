@@ -11,7 +11,6 @@
         "${config:idf.espAdfPathWin}/components/**",
         "${workspaceFolder}/**",
         "${workspaceFolder}/../components/**"
-        "${workspaceFolder}/../components/testing/**"
       ],
       "browse": {
         "path": [

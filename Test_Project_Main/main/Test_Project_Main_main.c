@@ -82,7 +82,6 @@ void vLED_Period_Timercallback (void *pvParam);
 void vTask_running_value (void *pvParam);
 void vPeriod_change_task (void *pvParam);
 
-
 void
 app_main (void)
 {

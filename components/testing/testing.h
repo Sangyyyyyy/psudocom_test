@@ -1,6 +1,8 @@
 #ifndef __TESTING_H__
 #define __TESTING_H__
 
+#include <stdio.h>
+
 /**
  * test용 헤더파일입니다.
  * test하기위해 한겁니다.
