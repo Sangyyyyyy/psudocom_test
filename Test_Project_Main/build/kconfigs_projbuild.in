@@ -1,5 +1,0 @@
-source "D:/Project/001_Psudo_Company/src/fw/Test_Project/components/bootloader/Kconfig.projbuild"
-source "D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_app_format/Kconfig.projbuild"
-source "D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esp_rom/Kconfig.projbuild"
-source "D:/Project/001_Psudo_Company/src/fw/Test_Project/components/esptool_py/Kconfig.projbuild"
-source "D:/Project/001_Psudo_Company/src/fw/Test_Project/components/partition_table/Kconfig.projbuild"

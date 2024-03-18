@@ -15,5 +15,17 @@
   "idf.pythonBinPathWin": "d:\\esp\\espressif\\python_env\\idf5.2_py3.11_env\\Scripts\\python.exe",
   "idf.toolsPathWin": "d:\\esp\\espressif",
   "idf.portWin": "COM4",
-  "idf.flashType": "UART"
+  "idf.flashType": "UART",
+  "files.associations": {
+    "gpio.h": "c",
+    "testing.h": "c",
+    "*.inc": "c",
+    "atomic": "c",
+    "*.tcc": "c",
+    "compare": "c",
+    "optional": "c",
+    "numeric": "c",
+    "sstream": "c",
+    "cmath": "c"
+  }
 }
