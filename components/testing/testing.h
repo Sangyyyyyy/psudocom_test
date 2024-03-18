@@ -20,7 +20,6 @@ typedef struct _person
 } Person_t;
 
 int add (int a, int b);
-
 Person_t person_init (void);
 
 #endif

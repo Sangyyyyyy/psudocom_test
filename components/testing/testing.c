@@ -1,9 +1,6 @@
 #include "testing.h"
 #include <stdio.h>
 
-int add (int a, int b);
-Person_t person_init (void);
-
 int
 add (int a, int b)
 {

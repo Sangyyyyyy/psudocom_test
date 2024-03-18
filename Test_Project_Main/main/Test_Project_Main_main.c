@@ -22,6 +22,8 @@
 //
 #include <driver/gpio.h>
 
+#include "../testing/testing.h"
+
 static const char *TAG = "APPLICATION";
 
 #define LED_PIN 5
@@ -87,6 +89,11 @@ app_main (void)
   //led 설정
   gpio_reset_pin (LED_PIN);
   gpio_set_direction (LED_PIN, GPIO_MODE_OUTPUT);
+
+  Person_t test_person;
+  test_person = person_init();
+
+  printf("name = %s\r\nage = %d",test_person.name, test_person.age);
 
   //nvs 설정
   esp_err_t ret = nvs_flash_init ();
@@ -273,7 +280,7 @@ mainPage_get_handler (httpd_req_t * req)
   httpd_resp_sendstr_chunk (req,
                             "document.getElementById(\"loginForm\").addEventListener(\"submit\", (e) => {e.preventDefault(); const formData = new FormData(e.target); const data = Array.from(formData.entries()).reduce((memo, pair) => ({...memo, [pair[0]]: pair[1],  }), {}); var xhr = new XMLHttpRequest(); xhr.open(\"POST\", \"http://192.168.4.1/connection\", true); xhr.setRequestHeader('Content-Type', 'application/json'); xhr.send(JSON.stringify(data)); document.getElementById(\"output\").innerHTML = JSON.stringify(data);});");
   httpd_resp_sendstr_chunk (req, "</script>");
- 
+
 
   // form 2 script(period change)
   httpd_resp_sendstr_chunk (req, "<form class=\"form2\" id=\"changeForm\" action=\"/change\">");
